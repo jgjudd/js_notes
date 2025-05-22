@@ -1,7 +1,22 @@
-import { useState } from "react";
+import { ChangeEvent, SetStateAction, useState } from "react";
 
-export default function Todo({ todo, handleUpdateTodo, handleDeleteTodo }) {
-  const [completed, setCompleted] = useState(false);
+export type TodoProps = {
+  id: number;
+  label: string;
+  completed: boolean;
+};
+type ComponentProps = {
+  todo: TodoProps;
+  handleUpdateTodo: (todo: TodoProps) => SetStateAction<void>;
+  handleDeleteTodo: (id: number) => SetStateAction<void>;
+};
+
+export default function Todo({
+  todo,
+  handleUpdateTodo,
+  handleDeleteTodo,
+}: ComponentProps) {
+  // const [completed, setCompleted] = useState(false);
   const [editing, setEditing] = useState(false);
 
   const handleCheckboxClick = () =>
@@ -10,7 +25,7 @@ export default function Todo({ todo, handleUpdateTodo, handleDeleteTodo }) {
       completed: !todo.completed,
     });
   const handleEditClick = () => setEditing(!editing);
-  const handleEditTodo = (e) =>
+  const handleEditTodo = (e: ChangeEvent<HTMLInputElement>) =>
     handleUpdateTodo({
       ...todo,
       label: e.target.value,
@@ -27,11 +42,14 @@ export default function Todo({ todo, handleUpdateTodo, handleDeleteTodo }) {
         marginBottom: "1rem",
       }}
     >
-      <label htmlFor={todo.id} style={{ display: "flex", marginRight: "1rem" }}>
+      <label
+        htmlFor={todo.id.toString()}
+        style={{ display: "flex", marginRight: "1rem" }}
+      >
         <div>
           <input
             type="checkbox"
-            id={todo.id}
+            id={todo.id.toString()}
             checked={todo.completed}
             onChange={handleCheckboxClick}
             style={{ marginRight: "1rem" }}
