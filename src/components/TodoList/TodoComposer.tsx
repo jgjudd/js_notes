@@ -1,6 +1,7 @@
-import * as React from "react";
+import { ChangeEvent, useState, SetStateAction } from "react";
+import { type TodoProps } from "./Todo";
 
-function createTodo(label) {
+function createTodo(label: string) {
   return {
     id: Math.floor(Math.random() * 10000),
     label,
@@ -8,10 +9,15 @@ function createTodo(label) {
   };
 }
 
-export default function TodoComposer({ handleAddTodo }) {
-  const [label, setLabel] = React.useState("");
+type TodoComposerProps = {
+  handleAddTodo: (newTodo: TodoProps) => SetStateAction<void>;
+};
 
-  const handleUpdateLabel = (e) => setLabel(e.target.value);
+export default function TodoComposer({ handleAddTodo }: TodoComposerProps) {
+  const [label, setLabel] = useState("");
+
+  const handleUpdateLabel = (e: ChangeEvent<HTMLInputElement>) =>
+    setLabel(e.target.value);
 
   const handleAddTodoClick = () => {
     const todo = createTodo(label);

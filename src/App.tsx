@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import TodoList from "./components/TodoList/TodoList";
+import Clock from "./components/Clock/Clock";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -27,6 +28,7 @@ function App() {
         </p>
       </div>
       <TodoList />
+      <Clock />
     </>
   );
 }
