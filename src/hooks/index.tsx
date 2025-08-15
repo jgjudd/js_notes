@@ -3,8 +3,10 @@ import useCounter from "./useCounter/useCounter";
 import useDocumentTitle from "./useDocumentTitle/useDocumentTitle";
 import useDefault from "./useDefault/useDefault";
 import useFavicon from "./useFavicon/useFavicon";
+import useLockBodyScroll from "./useLockBodyScroll/useLockBodyScroll";
 import usePreferredLanguage from "./usePreferredLanguage/usePreferredLanguage";
 import usePrevious from "./usePrevious/usePrevious";
+import useQueue from "./useQueue/useQueue";
 import useToggle from "./useToggle/useToggle";
 
 export {
@@ -13,7 +15,9 @@ export {
   useDefault,
   useDocumentTitle,
   useFavicon,
+  useLockBodyScroll,
   usePreferredLanguage,
   usePrevious,
+  useQueue,
   useToggle,
 };
