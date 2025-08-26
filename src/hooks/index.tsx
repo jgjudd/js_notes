@@ -9,6 +9,7 @@ import usePrevious from "./usePrevious/usePrevious";
 import useQueue from "./useQueue/useQueue";
 import useTimeout from "./useTimeout/useTimeout";
 import useToggle from "./useToggle/useToggle";
+import useWindowSize from "./useWindowSize/useWindowSize";
 
 export {
   useCopyToClipboard,
@@ -22,4 +23,5 @@ export {
   useQueue,
   useTimeout,
   useToggle,
+  useWindowSize,
 };
